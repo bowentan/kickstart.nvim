@@ -389,7 +389,7 @@ require('lazy').setup({
         defaults = {
           mappings = {
             -- i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-            n = { ['<c-t>'] = actions.select_tab, ['<c-v>'] = actions.select_vertical },
+            n = { ['<c-t>'] = actions.select_tab, ['<c-v>'] = actions.select_vertical, ['<c-x>'] = actions.select_horizontal },
           },
         },
         -- pickers = {}
