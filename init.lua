@@ -909,8 +909,6 @@ require('lazy').setup({
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
-  -- 'quarto-dev/quarto-nvim',
-  -- 'jmbuhr/otter.nvim',
   {
     'jpalardy/vim-slime',
     init = function()
