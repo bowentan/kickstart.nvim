@@ -865,8 +865,6 @@ require('lazy').setup({
     end,
   },
 
-  -- 'quarto-dev/quarto-nvim',
-  -- 'jmbuhr/otter.nvim',
   {
     'jpalardy/vim-slime',
     init = function()
