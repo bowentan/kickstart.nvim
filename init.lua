@@ -943,16 +943,16 @@ require('lazy').setup({
   },
   'tpope/vim-fugitive',
   'github/copilot.vim',
-  {
-    'nvim-tree/nvim-tree.lua',
-    lazy = false,
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function()
-      require('nvim-tree').setup {}
-    end,
-  },
+  -- {
+  --   'nvim-tree/nvim-tree.lua',
+  --   lazy = false,
+  --   dependencies = {
+  --     'nvim-tree/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require('nvim-tree').setup {}
+  --   end,
+  -- },
   {
     'ahmedkhalf/project.nvim',
     config = function()
