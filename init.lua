@@ -868,12 +868,16 @@ require('lazy').setup({
   },
 
   {
-    'rmehri01/onenord.nvim',
+    'navarasu/onedark.nvim',
     config = function()
-      require('onenord').setup {
-        theme = 'light',
-        border = true,
+      require('onedark').setup {
+        style = 'light',
       }
+    end,
+    init = function()
+      vim.cmd [[
+        colorscheme onedark
+      ]]
     end,
   },
 
