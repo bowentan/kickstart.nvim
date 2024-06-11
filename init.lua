@@ -986,23 +986,44 @@ require('lazy').setup({
   },
 
   {
-    'SuperBo/fugit2.nvim',
-    opts = {
-      width = 100,
-    },
+    'NeogitOrg/neogit',
     dependencies = {
-      'MunifTanjim/nui.nvim',
-      'nvim-tree/nvim-web-devicons',
-      'nvim-lua/plenary.nvim',
+      'nvim-lua/plenary.nvim', -- required
+      'sindrets/diffview.nvim', -- optional - Diff integration
+
+      -- Only one of these is needed, not both.
+      'nvim-telescope/telescope.nvim', -- optional
+      'ibhagwan/fzf-lua', -- optional
+    },
+    config = true,
+    keys = {
       {
-        'chrisgrieser/nvim-tinygit', -- optional: for Github PR view
-        dependencies = { 'stevearc/dressing.nvim' },
+        '<leader>Gg',
+        function()
+          require('neogit').open { kind = 'split' }
+        end,
+        mode = 'n',
+        desc = 'Neo[g]it',
       },
     },
-    cmd = { 'Fugit2', 'Fugit2Diff', 'Fugit2Graph' },
+  },
+
+  {
+    'rbong/vim-flog',
+    lazy = true,
+    cmd = { 'Flog', 'Flogsplit', 'Floggit' },
+    dependencies = {
+      'tpope/vim-fugitive',
+    },
     keys = {
-      { '<leader>Gg', mode = 'n', '<cmd>Fugit2<cr>', desc = 'Fugit2' },
-      { '<leader>GG', mode = 'n', '<cmd>Fugit2Graph<cr>', desc = 'Fugit2 Graph' },
+      {
+        '<leader>GG',
+        function()
+          vim.cmd 'Flog'
+        end,
+        mode = 'n',
+        desc = 'Git [G]raph',
+      },
     },
   },
 
