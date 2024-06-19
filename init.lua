@@ -386,6 +386,7 @@ require('lazy').setup({
           },
           file_browser = {
             hijack_netrw = true,
+            respect_gitignore = false,
           },
         },
       }
@@ -403,7 +404,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       -- vim.keymap.set('n', '<leader>sf', builtin.find_files, {  desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>sf', function()
-        builtin.find_files { no_ignore = true }
+        builtin.find_files()
       end, { desc = '[S]earch [F]iles' })
       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
@@ -466,6 +467,14 @@ require('lazy').setup({
           'MunifTanjim/nui.nvim',
         },
         opts = { lsp = { auto_attach = true } },
+        keys = {
+          {
+            '<leader>nb',
+            ':Navbuddy<CR>',
+            mode = 'n',
+            desc = '[N]av [B]uddy',
+          },
+        },
       },
     },
     config = function()
@@ -963,6 +972,12 @@ require('lazy').setup({
         end,
         mode = 'n',
         desc = 'Neo[g]it',
+      },
+      {
+        '<leader>Gd',
+        ':DiffviewOpen<CR>',
+        mode = 'n',
+        desc = 'Git [D]iff',
       },
     },
   },
