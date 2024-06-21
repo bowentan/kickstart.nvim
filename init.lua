@@ -713,6 +713,7 @@ require('lazy').setup({
         javascript = { { 'prettierd', 'prettier' } },
         typescript = { { 'prettierd', 'prettier' } },
         html = { { 'prettierd', 'prettier' } },
+        css = { { 'prettierd', 'prettier' } },
       },
     },
   },
