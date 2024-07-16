@@ -714,6 +714,7 @@ require('lazy').setup({
         typescript = { { 'prettierd', 'prettier' } },
         html = { { 'prettierd', 'prettier' } },
         css = { { 'prettierd', 'prettier' } },
+        markdown = { { 'prettierd', 'prettier' } },
       },
     },
   },
@@ -1013,6 +1014,24 @@ require('lazy').setup({
           enable_close_on_slash = false, -- Auto close on trailing </
         },
       }
+    end,
+  },
+
+  {
+    'gorbit99/codewindow.nvim',
+    config = function()
+      local codewindow = require 'codewindow'
+      codewindow.setup()
+      codewindow.apply_default_keybinds()
+    end,
+  },
+
+  {
+    'iamcco/markdown-preview.nvim',
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    ft = { 'markdown' },
+    build = function()
+      vim.fn['mkdp#util#install']()
     end,
   },
 
