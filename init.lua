@@ -665,7 +665,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -675,6 +675,8 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+
+        ruff_lsp = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -768,7 +770,7 @@ require('lazy').setup({
         css = { 'prettierd', 'prettier', stop_after_first = true },
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         yaml = { 'prettierd', 'prettier', stop_after_first = true },
-        python = { 'black', 'isort', stop_after_first = true },
+        python = { 'ruff black', stop_after_first = true },
       },
     },
   },
