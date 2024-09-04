@@ -895,7 +895,7 @@ require('lazy').setup({
     'navarasu/onedark.nvim',
     config = function()
       require('onedark').setup {
-        style = 'light',
+        style = 'dark',
       }
     end,
     init = function()
@@ -1068,15 +1068,6 @@ require('lazy').setup({
           enable_close_on_slash = false, -- Auto close on trailing </
         },
       }
-    end,
-  },
-
-  {
-    'gorbit99/codewindow.nvim',
-    config = function()
-      local codewindow = require 'codewindow'
-      codewindow.setup()
-      codewindow.apply_default_keybinds()
     end,
   },
 
