@@ -686,7 +686,7 @@ require('lazy').setup({
         -- ts_ls = {},
         --
 
-        ruff_lsp = {},
+        ruff = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -719,7 +719,6 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'ruff', -- Used to format Python code
         'rust-analyzer', -- Used for Rust LSP
-        'ruff-lsp', -- Used for Ruff LSP
         'markdownlint', -- Used for Markdown Linting
         'prettier', -- Used for formatting JavaScript, TypeScript, etc.
         'prettierd', -- Used for formatting JavaScript, TypeScript, etc.
