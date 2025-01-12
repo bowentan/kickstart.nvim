@@ -157,6 +157,8 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+vim.opt.termguicolors = true
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -1000,18 +1002,31 @@ require('lazy').setup({
       vim.g.slime_target = 'neovim'
     end,
   },
+
   'tpope/vim-fugitive',
+
   'github/copilot.vim',
-  -- {
-  --   'nvim-tree/nvim-tree.lua',
-  --   lazy = false,
-  --   dependencies = {
-  --     'nvim-tree/nvim-web-devicons',
-  --   },
-  --   config = function()
-  --     require('nvim-tree').setup {}
-  --   end,
-  -- },
+
+  {
+    'nvim-tree/nvim-tree.lua',
+    version = '*',
+    lazy = false,
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+    },
+    config = function()
+      require('nvim-tree').setup {}
+    end,
+    keys = {
+      {
+        '<leader>nt',
+        ':NvimTreeToggle<CR>',
+        mode = 'n',
+        desc = '[N]vim [T]ree',
+      },
+    },
+  },
+
   {
     'ahmedkhalf/project.nvim',
     config = function()
@@ -1123,96 +1138,147 @@ require('lazy').setup({
     },
   },
 
-  -- {
-  --   'ThePrimeagen/harpoon',
-  --   branch = 'harpoon2',
-  --   lazy = false,
-  --   requires = { 'nvim-lua/plenary.nvim' }, -- if harpoon requires this
-  --   config = function()
-  --     require('harpoon').setup {}
-  --
-  --     local function toggle_telescope_with_harpoon(harpoon_files)
-  --       local file_paths = {}
-  --       for _, item in ipairs(harpoon_files.items) do
-  --         table.insert(file_paths, item.value)
-  --       end
-  --
-  --       require('telescope.pickers')
-  --         .new({}, {
-  --           prompt_title = 'Harpoon',
-  --           finder = require('telescope.finders').new_table {
-  --             results = file_paths,
-  --           },
-  --           previewer = require('telescope.config').values.file_previewer {},
-  --           sorter = require('telescope.config').values.generic_sorter {},
-  --         })
-  --         :find()
-  --     end
-  --     vim.keymap.set('n', '<leader>mo', function()
-  --       local harpoon = require 'harpoon'
-  --       toggle_telescope_with_harpoon(harpoon:list())
-  --     end, { desc = 'Open harpoon window' })
-  --   end,
-  --   keys = {
-  --     {
-  --       '<leader>ma',
-  --       function()
-  --         require('harpoon'):list():add()
-  --       end,
-  --       mode = 'n',
-  --       desc = 'Harpoon file [A]ppend',
-  --     },
-  --     {
-  --       '<leader>ml',
-  --       function()
-  --         local harpoon = require 'harpoon'
-  --         harpoon.ui:toggle_quick_menu(harpoon:list())
-  --       end,
-  --       mode = 'n',
-  --       desc = 'Harpoon quick menu',
-  --     },
-  --     {
-  --       '<leader>mp',
-  --       function()
-  --         require('harpoon'):list():prev()
-  --       end,
-  --       mode = 'n',
-  --       desc = 'Harpoon [P]revious',
-  --     },
-  --     {
-  --       '<leader>mn',
-  --       function()
-  --         require('harpoon'):list():next()
-  --       end,
-  --       mode = 'n',
-  --       desc = 'Harpoon [N]ext',
-  --     },
-  --     {
-  --       '<leader>m1',
-  --       function()
-  --         require('harpoon'):list():select(1)
-  --       end,
-  --       mode = 'n',
-  --       desc = 'Harpoon to file 1',
-  --     },
-  --     {
-  --       '<leader>m2',
-  --       function()
-  --         require('harpoon'):list():select(2)
-  --       end,
-  --       mode = 'n',
-  --       desc = 'Harpoon to file 2',
-  --     },
-  --     {
-  --       '<leader>m3',
-  --       function()
-  --         require('harpoon'):list():select(3)
-  --       end,
-  --       mode = 'n',
-  --       desc = 'Harpoon to file 3',
-  --     },
-  --   },
-  -- },
+  {
+    'akinsho/bufferline.nvim',
+    version = '*',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      local bufferline = require 'bufferline'
+      bufferline.setup {
+        options = {
+          style_preset = bufferline.style_preset.default,
+          themable = true,
+          modified_icon = '● ',
+          close_icon = ' ',
+          left_trunc_marker = ' ',
+          right_trunc_marker = ' ',
+          diagnostics = 'nvim_lsp',
+          separator_style = 'slant',
+          offsets = {
+            {
+              filetype = 'NvimTree',
+              text = 'File Explorer',
+              text_align = 'center',
+              separator = true,
+            },
+          },
+        },
+      }
+    end,
+  },
+
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    opts = {
+      open_mapping = [[<c-\>]],
+      direction = 'float',
+    },
+  },
+
+  {
+    'kevinhwang91/nvim-bqf',
+    version = '*',
+  },
+
+  {
+    'petertriho/nvim-scrollbar',
+    version = '*',
+    config = function()
+      require('scrollbar').setup()
+    end,
+  },
+
+  {
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    lazy = false,
+    requires = { 'nvim-lua/plenary.nvim' }, -- if harpoon requires this
+    config = function()
+      require('harpoon').setup {}
+
+      local function toggle_telescope_with_harpoon(harpoon_files)
+        local file_paths = {}
+        for _, item in ipairs(harpoon_files.items) do
+          table.insert(file_paths, item.value)
+        end
+
+        require('telescope.pickers')
+          .new({}, {
+            prompt_title = 'Harpoon',
+            finder = require('telescope.finders').new_table {
+              results = file_paths,
+            },
+            previewer = require('telescope.config').values.file_previewer {},
+            sorter = require('telescope.config').values.generic_sorter {},
+          })
+          :find()
+      end
+      vim.keymap.set('n', '<leader>mo', function()
+        local harpoon = require 'harpoon'
+        toggle_telescope_with_harpoon(harpoon:list())
+      end, { desc = 'Open harpoon window' })
+    end,
+    keys = {
+      {
+        '<leader>ma',
+        function()
+          require('harpoon'):list():add()
+        end,
+        mode = 'n',
+        desc = 'Harpoon file [A]ppend',
+      },
+      {
+        '<leader>ml',
+        function()
+          local harpoon = require 'harpoon'
+          harpoon.ui:toggle_quick_menu(harpoon:list())
+        end,
+        mode = 'n',
+        desc = 'Harpoon quick menu',
+      },
+      {
+        '<leader>mp',
+        function()
+          require('harpoon'):list():prev()
+        end,
+        mode = 'n',
+        desc = 'Harpoon [P]revious',
+      },
+      {
+        '<leader>mn',
+        function()
+          require('harpoon'):list():next()
+        end,
+        mode = 'n',
+        desc = 'Harpoon [N]ext',
+      },
+      {
+        '<leader>m1',
+        function()
+          require('harpoon'):list():select(1)
+        end,
+        mode = 'n',
+        desc = 'Harpoon to file 1',
+      },
+      {
+        '<leader>m2',
+        function()
+          require('harpoon'):list():select(2)
+        end,
+        mode = 'n',
+        desc = 'Harpoon to file 2',
+      },
+      {
+        '<leader>m3',
+        function()
+          require('harpoon'):list():select(3)
+        end,
+        mode = 'n',
+        desc = 'Harpoon to file 3',
+      },
+    },
+  },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
@@ -1227,7 +1293,7 @@ require('lazy').setup({
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
