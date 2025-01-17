@@ -1172,6 +1172,38 @@ require('lazy').setup({
         },
       }
     end,
+    keys = {
+      {
+        'g1',
+        ':BufferLineGoToBuffer 1<CR>',
+        mode = 'n',
+        desc = '[G]o to buffer [1]',
+      },
+      {
+        'g2',
+        ':BufferLineGoToBuffer 2<CR>',
+        mode = 'n',
+        desc = '[G]o to buffer [2]',
+      },
+      {
+        'g3',
+        ':BufferLineGoToBuffer 3<CR>',
+        mode = 'n',
+        desc = '[G]o to buffer [3]',
+      },
+      {
+        'g4',
+        ':BufferLineGoToBuffer 4<CR>',
+        mode = 'n',
+        desc = '[G]o to buffer [4]',
+      },
+      {
+        'g5',
+        ':BufferLineGoToBuffer 5<CR>',
+        mode = 'n',
+        desc = '[G]o to buffer [5]',
+      },
+    },
   },
 
   {
