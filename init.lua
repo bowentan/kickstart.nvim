@@ -1148,6 +1148,7 @@ require('lazy').setup({
     'akinsho/bufferline.nvim',
     version = '*',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    lazy = false,
     config = function()
       local bufferline = require 'bufferline'
       bufferline.setup {
