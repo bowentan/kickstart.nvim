@@ -199,13 +199,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Keybinds to move lines up and down
-vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true, desc = 'Move the current line down' })
-vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true, desc = 'Move the current line up' })
--- Move visual block of text up and down
-vim.keymap.set('x', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true, desc = 'Move the selected lines down' })
-vim.keymap.set('x', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true, desc = 'Move the selected lines up' })
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -707,6 +700,8 @@ require('lazy').setup({
             },
           },
         },
+
+        bashls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -798,6 +793,9 @@ require('lazy').setup({
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         yaml = { 'prettierd', 'prettier', stop_after_first = true },
         python = { 'ruff black', stop_after_first = true },
+        bash = { 'shfmt', stop_after_first = true },
+        sh = { 'shfmt', stop_after_first = true },
+        zsh = { 'shfmt', stop_after_first = true },
       },
     },
   },
@@ -952,6 +950,22 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      require('mini.comment').setup()
+
+      -- require('mini.completion').setup()
+
+      require('mini.pairs').setup()
+
+      require('mini.move').setup()
+
+      require('mini.operators').setup()
+
+      require('mini.splitjoin').setup()
+
+      require('mini.align').setup()
+
+      require('mini.bracketed').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -1418,7 +1432,7 @@ require('lazy').setup({
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
-  require 'kickstart.plugins.autopairs',
+  -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
