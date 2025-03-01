@@ -955,6 +955,8 @@ require('lazy').setup({
 
       -- require('mini.completion').setup()
 
+      require('mini.map').setup()
+
       require('mini.pairs').setup()
 
       require('mini.move').setup()
@@ -989,6 +991,16 @@ require('lazy').setup({
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
+    keys = {
+      {
+        '<leader>tm',
+        function()
+          require('mini.map').toggle()
+        end,
+        mode = 'n',
+        desc = '[T]oggle [M]iniMap',
+      },
+    },
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -1268,13 +1280,21 @@ require('lazy').setup({
     version = '*',
   },
 
-  {
-    'petertriho/nvim-scrollbar',
-    version = '*',
-    config = function()
-      require('scrollbar').setup()
-    end,
-  },
+  -- {
+  --   'petertriho/nvim-scrollbar',
+  --   version = '*',
+  --   config = function()
+  --     require('scrollbar').setup()
+  --   end,
+  --   keys = {
+  --     {
+  --       '<leader>ns',
+  --       ':ScrollbarToggle<CR>',
+  --       mode = 'n',
+  --       desc = '[N]vim Scrollbar [T]oggle',
+  --     },
+  --   },
+  -- },
 
   {
     'ThePrimeagen/harpoon',
