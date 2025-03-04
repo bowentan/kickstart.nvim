@@ -21,7 +21,7 @@ return {
 
       -- require('mini.completion').setup()
 
-      -- require('mini.map').setup()
+      require('mini.map').setup()
       --
       require('mini.pairs').setup()
       require('mini.move').setup()
@@ -32,7 +32,7 @@ return {
 
       require('mini.indentscope').setup()
 
-      require('mini.cursorword').setup()
+      -- require('mini.cursorword').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -52,16 +52,6 @@ return {
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
-    keys = {
-      {
-        '<leader>tm',
-        function()
-          require('mini.map').toggle()
-        end,
-        mode = 'n',
-        desc = '[T]oggle [M]iniMap',
-      },
-    },
   },
 }
 
