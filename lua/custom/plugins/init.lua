@@ -25,7 +25,7 @@ return {
 
   require 'custom.plugins.diffview',
 
-  -- require 'custom.plugins.lazyjj',
+  require 'custom.plugins.lazyjj',
 
   require 'custom.plugins.trouble',
 
