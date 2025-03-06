@@ -46,6 +46,7 @@ return {
         css = { 'prettierd', 'prettier', stop_after_first = true },
         markdown = { 'prettierd', 'prettier', stop_after_first = true },
         yaml = { 'prettierd', 'prettier', stop_after_first = true },
+        json = { 'prettierd', 'prettier', stop_after_first = true },
         python = { 'ruff black', stop_after_first = true },
         bash = { 'shfmt', stop_after_first = true },
         sh = { 'shfmt', stop_after_first = true },
