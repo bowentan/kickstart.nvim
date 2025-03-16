@@ -40,6 +40,8 @@ return {
   require 'custom.plugins.patterns',
 
   require 'custom.plugins.nvim-tree',
+
+  require 'custom.plugins.toggleterm',
 }
 
 -- vim: ts=2 sts=2 sw=2 et
