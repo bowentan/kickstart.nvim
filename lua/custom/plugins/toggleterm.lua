@@ -8,7 +8,7 @@ return {
           if term.direction == 'horizontal' then
             return 50
           elseif term.direction == 'vertical' then
-            return vim.o.columns * 0.4
+            return vim.o.columns * 0.33
           end
         end,
         hide_numbers = true, -- hide the number column in toggleterm buffers
@@ -55,6 +55,22 @@ return {
         ':TermSelect<CR>',
         mode = 'n',
         desc = 'ToggleTerm [S]elect',
+      },
+      {
+        '<C-c><C-c>',
+        function()
+          require('toggleterm').send_lines_to_terminal('single_line', false, { args = vim.v.count })
+        end,
+        mode = 'n',
+        desc = 'Send line with cursor to terminal',
+      },
+      {
+        '<C-c><C-c>',
+        function()
+          require('toggleterm').send_lines_to_terminal('visual_selection', false, { args = vim.v.count })
+        end,
+        mode = 'v',
+        desc = 'Send visual lines to terminal',
       },
     },
   },

@@ -7,7 +7,7 @@ return {
 
   require 'custom.plugins.treesitter-textobjects',
 
-  require 'custom.plugins.slime',
+  -- require 'custom.plugins.slime',
 
   require 'custom.plugins.copilot',
 
@@ -41,7 +41,11 @@ return {
 
   require 'custom.plugins.nvim-tree',
 
-  require 'custom.plugins.toggleterm',
+  -- require 'custom.plugins.toggleterm',
+
+  require 'custom.plugins.molten',
+
+  require 'custom.plugins.kitty-scrollback',
 }
 
 -- vim: ts=2 sts=2 sw=2 et
