@@ -24,7 +24,21 @@ return {
       require('mini.map').setup()
       --
       require('mini.pairs').setup()
-      require('mini.move').setup()
+      require('mini.move').setup {
+        mappings = {
+          -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+          left = '<C-M-h>',
+          right = '<C-M-l>',
+          down = '<C-M-j>',
+          up = '<C-M-k>',
+
+          -- Move current line in Normal mode
+          line_left = '<C-M-h>',
+          line_right = '<C-M-l>',
+          line_down = '<C-M-j>',
+          line_up = '<C-M-k>',
+        },
+      }
       require('mini.operators').setup()
       require('mini.splitjoin').setup()
       require('mini.align').setup()
