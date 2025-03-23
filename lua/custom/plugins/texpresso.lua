@@ -1,11 +1,10 @@
 return {
   {
     'let-def/texpresso.vim',
+    lazy = false,
     cmd = 'TeXpresso',
     config = function()
-      local texpresso = require 'texpresso'
-      texpresso.texpresso_path = vim.fn.exepath 'texpresso'
-      texpresso.attach()
+      require('texpresso').texpresso_path = vim.fn.exepath 'texpresso'
     end,
   },
 }
