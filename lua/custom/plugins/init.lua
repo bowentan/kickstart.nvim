@@ -46,6 +46,10 @@ return {
   require 'custom.plugins.molten',
 
   require 'custom.plugins.kitty-scrollback',
+
+  require 'custom.plugins.vimtex',
+
+  require 'custom.plugins.texpresso',
 }
 
 -- vim: ts=2 sts=2 sw=2 et
