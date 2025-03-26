@@ -274,6 +274,16 @@ return {
         },
 
         bashls = {},
+
+        tinymist = {
+          settings = {
+            tinymist = {
+              formatterMode = 'typstyle',
+              exportPdf = 'onType',
+              semanticTokens = 'disable',
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -305,6 +315,7 @@ return {
         'shfmt', -- Used to format Shell code
         'stylua', -- Used to format Lua code
         'typescript-language-server', -- Used for TypeScript LSP
+        'tinymist', -- Used for Typst LSP
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
