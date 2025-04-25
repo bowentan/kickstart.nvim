@@ -1001,7 +1001,8 @@ require('lazy').setup({
     },
     cmd = { 'Fugit2', 'Fugit2Diff', 'Fugit2Graph' },
     keys = {
-      { '<leader>G', mode = 'n', '<cmd>Fugit2<cr>' },
+      { '<leader>Gg', mode = 'n', '<cmd>Fugit2<cr>', desc = 'Fugit2' },
+      { '<leader>GG', mode = 'n', '<cmd>Fugit2Graph<cr>', desc = 'Fugit2 Graph' },
     },
   },
 
