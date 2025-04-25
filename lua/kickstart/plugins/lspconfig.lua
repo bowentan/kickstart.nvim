@@ -28,31 +28,8 @@ return {
       { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by nvim-cmp
-      -- 'hrsh7th/cmp-nvim-lsp',
-      'saghen/blink.cmp',
-      {
-        'SmiteshP/nvim-navbuddy',
-        dependencies = {
-          {
-            'SmiteshP/nvim-navic',
-            config = function()
-              require('nvim-navic').setup {
-                lsp = { auto_attach = true },
-              }
-            end,
-          },
-          'MunifTanjim/nui.nvim',
-        },
-        opts = { lsp = { auto_attach = true } },
-        keys = {
-          {
-            '<leader>nb',
-            ':Navbuddy<CR>',
-            mode = 'n',
-            desc = '[N]av [B]uddy',
-          },
-        },
-      },
+      -- 'hrsh7th/cmp-nvim-lsp', or
+      -- 'saghen/blink.nvim'
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -274,7 +251,11 @@ return {
           },
         },
 
-        bashls = {},
+        bashls = {
+          settings = {
+            filetypes = { 'sh', 'zsh' },
+          },
+        },
 
         tinymist = {
           settings = {
@@ -334,6 +315,29 @@ return {
         },
       }
     end,
+  },
+  {
+    'SmiteshP/nvim-navbuddy',
+    dependencies = {
+      {
+        'SmiteshP/nvim-navic',
+        config = function()
+          require('nvim-navic').setup {
+            lsp = { auto_attach = true },
+          }
+        end,
+      },
+      'MunifTanjim/nui.nvim',
+    },
+    opts = { lsp = { auto_attach = true } },
+    keys = {
+      {
+        '<leader>nb',
+        ':Navbuddy<CR>',
+        mode = 'n',
+        desc = '[N]av [B]uddy',
+      },
+    },
   },
 }
 

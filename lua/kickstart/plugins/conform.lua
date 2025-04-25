@@ -49,7 +49,7 @@ return {
         json = { 'prettierd', 'prettier', stop_after_first = true },
         -- bash = { 'shfmt', stop_after_first = true },
         -- sh = { 'shfmt', stop_after_first = true },
-        -- zsh = { 'shfmt', stop_after_first = true },
+        zsh = { 'shfmt', stop_after_first = true },
       },
     },
   },

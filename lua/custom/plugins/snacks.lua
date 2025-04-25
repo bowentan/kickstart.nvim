@@ -563,6 +563,22 @@ return {
           Snacks.toggle.dim():map '<leader>uD'
           Snacks.toggle
             .new({
+              id = 'colorizer',
+              name = 'Colorizer',
+              get = function()
+                return require('colorizer').is_buffer_attached()
+              end,
+              set = function(state)
+                if state then
+                  require('colorizer').attach_to_buffer()
+                else
+                  require('colorizer').detach_from_buffer()
+                end
+              end,
+            })
+            :map '<leader>ur'
+          Snacks.toggle
+            .new({
               id = 'minimap',
               name = 'MiniMap',
               get = function()

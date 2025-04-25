@@ -1,6 +1,8 @@
 -- Basic kickstart plugins
 
 return {
+  require 'kickstart.plugins.luasnip',
+
   require 'kickstart.plugins.luarocks',
 
   require 'kickstart.plugins.debug',
