@@ -29,7 +29,7 @@ return {
       picker = {
         enabled = true,
         layout = {
-          preset = 'telescope',
+          cycle = true,
         },
       },
       notifier = { enabled = true, timeout = 5000 },
@@ -86,13 +86,13 @@ return {
         end,
         desc = 'Notification History',
       },
-      -- {
-      --   '<leader>e',
-      --   function()
-      --     Snacks.explorer()
-      --   end,
-      --   desc = 'File Explorer',
-      -- },
+      {
+        '<leader>E',
+        function()
+          Snacks.explorer()
+        end,
+        desc = 'File Explorer',
+      },
       -- find
       {
         '<leader>fb',

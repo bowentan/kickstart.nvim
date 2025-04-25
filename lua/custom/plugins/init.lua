@@ -15,7 +15,7 @@ return {
 
   require 'custom.plugins.rustaceanvim',
 
-  require 'custom.plugins.neoclip',
+  -- require 'custom.plugins.neoclip',
 
   require 'custom.plugins.bufferline',
 
@@ -43,7 +43,7 @@ return {
 
   -- require 'custom.plugins.toggleterm',
 
-  require 'custom.plugins.molten',
+  -- require 'custom.plugins.molten',
 
   require 'custom.plugins.kitty-scrollback',
 
