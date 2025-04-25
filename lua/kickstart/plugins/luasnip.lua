@@ -26,7 +26,7 @@ return {
         end,
         mode = { 'i', 's' },
         desc = 'Jumping forward',
-        { silence = true },
+        silent = true,
       },
       {
         '<C-K>',
@@ -35,7 +35,7 @@ return {
         end,
         mode = { 'i', 's' },
         desc = 'Jumping backward',
-        { silence = true },
+        silent = true,
       },
       {
         '<C-C>',
@@ -47,7 +47,7 @@ return {
         end,
         mode = { 'i', 's' },
         desc = 'Change choice',
-        { silence = true },
+        silent = true,
       },
     },
   },

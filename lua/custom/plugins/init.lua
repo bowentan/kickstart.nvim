@@ -3,13 +3,9 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-  require 'custom.plugins.treesitter-context',
-
-  require 'custom.plugins.treesitter-textobjects',
-
   -- require 'custom.plugins.slime',
 
-  require 'custom.plugins.copilot',
+  require 'custom.plugins.avante',
 
   require 'custom.plugins.ts-autotag',
 
@@ -18,8 +14,6 @@ return {
   -- require 'custom.plugins.neoclip',
 
   require 'custom.plugins.bufferline',
-
-  -- require 'custom.plugins.bqf',
 
   -- require 'custom.plugins.harpoon',
 
@@ -35,7 +29,7 @@ return {
 
   require 'custom.plugins.lualine',
 
-  require 'custom.plugins.todone',
+  -- require 'custom.plugins.todone',
 
   require 'custom.plugins.patterns',
 
@@ -43,7 +37,7 @@ return {
 
   -- require 'custom.plugins.toggleterm',
 
-  -- require 'custom.plugins.molten',
+  require 'custom.plugins.quarto-nvim',
 
   require 'custom.plugins.kitty-scrollback',
 

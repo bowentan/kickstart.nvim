@@ -9,6 +9,10 @@ return {
     -- If you use nix, you can build from source using latest nightly rust with:
     -- build = 'nix run .#build-plugin',
 
+    dependencies = {
+      'Kaiser-Yang/blink-cmp-avante',
+    },
+
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -54,7 +58,17 @@ return {
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
+        -- Add 'avante' to the list
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'avante' },
+        providers = {
+          avante = {
+            module = 'blink-cmp-avante',
+            name = 'Avante',
+            opts = {
+              -- options for blink-cmp-avante
+            },
+          },
+        },
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance

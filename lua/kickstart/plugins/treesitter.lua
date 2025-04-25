@@ -16,6 +16,38 @@ return {
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+
+      -- For molten code cells
+      textobjects = {
+        move = {
+          enable = true,
+          set_jumps = true, -- you can change this if you want.
+          goto_next_start = {
+            [']b'] = { query = '@code_cell.inner', desc = 'Next code block' },
+          },
+          goto_previous_start = {
+            ['[b'] = { query = '@code_cell.inner', desc = 'Previous code block' },
+          },
+        },
+        select = {
+          enable = true,
+          lookahead = true, -- you can change this if you want
+          keymaps = {
+            ['ib'] = { query = '@code_cell.inner', desc = 'In block' },
+            ['ab'] = { query = '@code_cell.outer', desc = 'Around block' },
+          },
+        },
+        swap = { -- Swap only works with code blocks that are under the same
+          -- markdown header
+          enable = true,
+          swap_next = {
+            ['<localleader>sbl'] = '@code_cell.outer',
+          },
+          swap_previous = {
+            ['<localleader>sbh'] = '@code_cell.outer',
+          },
+        },
+      },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -23,6 +55,12 @@ return {
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  },
+  { 'nvim-treesitter/nvim-treesitter-context' },
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+    requires = 'nvim-treesitter/nvim-treesitter',
   },
 }
 
