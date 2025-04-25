@@ -73,4 +73,20 @@ vim.opt.confirm = true
 -- Enable spell
 vim.opt.spelllang = { 'en_us' }
 
+-- Use spaces instead of tabs
+vim.opt.expandtab = true
+
+-- Set indentation width to 4 spaces
+vim.opt.shiftwidth = 2
+
+-- Set tab width to 2 spaces
+vim.opt.tabstop = 2
+
+-- Set soft tab stop to 2 spaces
+vim.opt.softtabstop = 2
+
+-- Enable auto-indentation
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+
 -- vim: ts=2 sts=2 sw=2 et
