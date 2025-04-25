@@ -49,7 +49,7 @@ return {
 
   require 'custom.plugins.vimtex',
 
-  require 'custom.plugins.texpresso',
+  require 'custom.plugins.typst-preview',
 }
 
 -- vim: ts=2 sts=2 sw=2 et
