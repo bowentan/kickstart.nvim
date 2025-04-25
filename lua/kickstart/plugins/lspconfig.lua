@@ -234,8 +234,18 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        -- gopls = {},
-        pyright = {},
+        gopls = {
+          settings = {
+            gopls = {
+              analyses = {
+                unusedparams = true,
+              },
+              staticcheck = true,
+              gofumpt = true,
+            },
+          },
+        },
+        -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -281,13 +291,19 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-        'ruff', -- Used to format Python code
-        -- 'rust-analyzer', -- Used for Rust LSP
+        'bash-language-server', -- Used for Bash LSP
+        'gofumpt', -- Used to format Go code
+        'goimports', -- Used to format Go code
+        'golines',
+        'gopls', -- Used for Go LSP
+        'lua-language-server', -- Used for Lua LSP
         'markdownlint', -- Used for Markdown Linting
         'prettier', -- Used for formatting JavaScript, TypeScript, etc.
         'prettierd', -- Used for formatting JavaScript, TypeScript, etc.
-        'pyright', -- Used for Python LSP
+        -- 'pyright', -- Used for Python LSP
+        'ruff', -- Used to format Python code
+        'shfmt', -- Used to format Shell code
+        'stylua', -- Used to format Lua code
         'typescript-language-server', -- Used for TypeScript LSP
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
