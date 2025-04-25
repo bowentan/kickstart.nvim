@@ -1011,7 +1011,7 @@ require('lazy').setup({
     end,
   },
 
-  'tpope/vim-fugitive',
+  -- 'tpope/vim-fugitive',
 
   'github/copilot.vim',
 
@@ -1049,53 +1049,80 @@ require('lazy').setup({
     end,
   },
 
-  {
-    'NeogitOrg/neogit',
-    dependencies = {
-      'nvim-lua/plenary.nvim', -- required
-      'sindrets/diffview.nvim', -- optional - Diff integration
+  -- {
+  --   'NeogitOrg/neogit',
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim', -- required
+  --     'sindrets/diffview.nvim', -- optional - Diff integration
+  --
+  --     -- Only one of these is needed, not both.
+  --     'nvim-telescope/telescope.nvim', -- optional
+  --     'ibhagwan/fzf-lua', -- optional
+  --   },
+  --   config = true,
+  --   keys = {
+  --     {
+  --       '<leader>Gg',
+  --       function()
+  --         require('neogit').open { kind = 'split' }
+  --       end,
+  --       mode = 'n',
+  --       desc = 'Neo[g]it',
+  --     },
+  --     {
+  --       '<leader>Gd',
+  --       ':DiffviewOpen<CR>',
+  --       mode = 'n',
+  --       desc = 'Git [D]iff',
+  --     },
+  --   },
+  -- },
 
-      -- Only one of these is needed, not both.
-      'nvim-telescope/telescope.nvim', -- optional
-      'ibhagwan/fzf-lua', -- optional
-    },
-    config = true,
-    keys = {
-      {
-        '<leader>Gg',
-        function()
-          require('neogit').open { kind = 'split' }
-        end,
-        mode = 'n',
-        desc = 'Neo[g]it',
-      },
-      {
-        '<leader>Gd',
-        ':DiffviewOpen<CR>',
-        mode = 'n',
-        desc = 'Git [D]iff',
-      },
-    },
-  },
-
   {
-    'rbong/vim-flog',
+    'kdheepak/lazygit.nvim',
     lazy = true,
-    cmd = { 'Flog', 'Flogsplit', 'Floggit' },
-    dependencies = {
-      'tpope/vim-fugitive',
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
     },
+    -- optional for floating window border decoration
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim', -- optional - Diff integration
+    },
+    config = function()
+      require('telescope').load_extension 'lazygit'
+    end,
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
     keys = {
-      {
-        '<leader>GG',
-        function()
-          vim.cmd 'Flog'
-        end,
-        mode = 'n',
-        desc = 'Git [G]raph',
-      },
+      { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+      { '<leader>gd', ':DiffviewOpen<CR>', desc = 'Git [D]iff' },
     },
   },
+
+  -- {
+  --   'rbong/vim-flog',
+  --   lazy = true,
+  --   cmd = { 'Flog', 'Flogsplit', 'Floggit' },
+  --   dependencies = {
+  --     'tpope/vim-fugitive',
+  --   },
+  --   keys = {
+  --     {
+  --       '<leader>GG',
+  --       function()
+  --         vim.cmd 'Flog'
+  --       end,
+  --       mode = 'n',
+  --       desc = 'Git [G]raph',
+  --     },
+  --   },
+  -- },
 
   {
     'windwp/nvim-ts-autotag',
@@ -1318,6 +1345,63 @@ require('lazy').setup({
         end,
         mode = 'n',
         desc = 'Harpoon to file 3',
+      },
+    },
+  },
+
+  {
+    'swaits/lazyjj.nvim',
+    dependencies = 'nvim-lua/plenary.nvim',
+    opts = {},
+  },
+
+  {
+    'folke/trouble.nvim',
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = 'Trouble',
+    keys = {
+      {
+        '<leader>xd',
+        '<cmd>Trouble diagnostics toggle<cr>',
+        desc = 'Diagnostics (Trouble)',
+      },
+      {
+        '<leader>xb',
+        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
+        desc = 'Buffer Diagnostics (Trouble)',
+      },
+      {
+        '<leader>xs',
+        '<cmd>Trouble symbols toggle focus=false<cr>',
+        desc = 'Symbols (Trouble)',
+      },
+      {
+        '<leader>xl',
+        '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+        desc = 'LSP Definitions / references / ... (Trouble)',
+      },
+      {
+        '<leader>xL',
+        '<cmd>Trouble loclist toggle<cr>',
+        desc = 'Location List (Trouble)',
+      },
+      {
+        '<leader>xq',
+        '<cmd>Trouble qflist toggle<cr>',
+        desc = 'Quickfix List (Trouble)',
+      },
+    },
+  },
+
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      {
+        '<leader>xt',
+        ':Trouble todo<CR>',
+        mode = 'n',
+        desc = '[T]rouble [T]odo',
       },
     },
   },
