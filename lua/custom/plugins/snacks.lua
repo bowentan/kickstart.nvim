@@ -12,7 +12,17 @@ return {
       dashboard = { enabled = true },
       dim = { enabled = true },
       explorer = { enabled = true },
-      image = { enabled = true },
+      image = {
+        enabled = true,
+        doc = {
+          enabled = true,
+          inline = false,
+        },
+        math = {
+          enabled = true,
+          inline = false,
+        },
+      },
       indent = { enabled = true },
       input = { enabled = true },
       layzgit = { enabled = true },
@@ -70,7 +80,7 @@ return {
         desc = 'Command History',
       },
       {
-        '<leader>n',
+        '<leader>Nn',
         function()
           Snacks.picker.notifications()
         end,
@@ -435,7 +445,7 @@ return {
         desc = 'Select Scratch Buffer',
       },
       {
-        '<leader>n',
+        '<leader>Nn',
         function()
           Snacks.notifier.show_history()
         end,

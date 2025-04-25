@@ -278,11 +278,9 @@ return {
 
         tinymist = {
           settings = {
-            tinymist = {
-              formatterMode = 'typstyle',
-              exportPdf = 'onType',
-              semanticTokens = 'disable',
-            },
+            formatterMode = 'typstyle',
+            exportPdf = 'onType',
+            semanticTokens = 'disable',
           },
         },
       }

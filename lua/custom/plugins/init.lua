@@ -25,7 +25,7 @@ return {
 
   require 'custom.plugins.diffview',
 
-  require 'custom.plugins.lazyjj',
+  -- require 'custom.plugins.lazyjj',
 
   require 'custom.plugins.trouble',
 
@@ -51,7 +51,13 @@ return {
 
   require 'custom.plugins.typst-preview',
 
-  require 'custom.plugins.image',
+  -- require 'custom.plugins.image',
+
+  require 'custom.plugins.neorg',
+
+  require 'custom.plugins.vim-visual-multi', -- May be replaced in neovim v0.12+
+
+  require 'custom.plugins.nvim-colorizer',
 }
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -63,4 +63,6 @@ vim.opt.scrolloff = 10
 
 vim.opt.termguicolors = true
 
+vim.opt.conceallevel = 2
+
 -- vim: ts=2 sts=2 sw=2 et
