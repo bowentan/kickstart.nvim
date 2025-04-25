@@ -59,7 +59,7 @@ return {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         -- Add 'avante' to the list
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'avante' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'avante', 'lazydev' },
         providers = {
           avante = {
             module = 'blink-cmp-avante',
@@ -67,6 +67,12 @@ return {
             opts = {
               -- options for blink-cmp-avante
             },
+          },
+          lazydev = {
+            name = 'LazyDev',
+            module = 'lazydev.integrations.blink',
+            -- make lazydev completions top priority (see `:h blink.cmp`)
+            score_offset = 100,
           },
         },
       },

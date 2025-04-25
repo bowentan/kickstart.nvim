@@ -13,10 +13,12 @@ return {
     end,
     keys = {
       {
-        '<leader>sc',
-        ':Neoclip<CR>',
+        '<leader>sy',
+        function()
+          require 'neoclip.fzf'()
+        end,
         mode = 'n',
-        desc = '[S]earch [C]lipboard',
+        desc = '[S]earch Clipboard/[Y]ank',
       },
     },
   },

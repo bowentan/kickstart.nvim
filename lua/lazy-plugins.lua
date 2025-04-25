@@ -65,11 +65,8 @@ require('lazy').setup({
   --
   -- Use the `dependencies` key to specify the dependencies of a particular plugin
 
-  -- Basic configuration
-  require 'kickstart.plugins',
-
-  -- Custom configuration
-  require 'custom.plugins',
+  -- Plugins
+  require 'plugins',
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and

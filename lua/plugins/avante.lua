@@ -57,9 +57,9 @@ return {
           enabled = true,
           auto_trigger = true,
           keymap = {
-            accept = '<M-y>',
-            accept_word = '<M-right>',
-            accept_line = '<M-CR>',
+            accept = '<M-CR>',
+            accept_word = '<C-right>',
+            accept_line = '<C-CR>',
             next = '<M-]>',
             prev = '<M-[>',
           },

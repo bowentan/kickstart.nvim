@@ -27,8 +27,38 @@ return {
     -- Add your own debuggers here
     -- Go
     'leoluz/nvim-dap-go',
+
     -- Python
     'mfussenegger/nvim-dap-python',
+
+    -- Lua
+    {
+      'jbyuki/one-small-step-for-vimkind',
+      config = function()
+        local dap = require 'dap'
+        dap.configurations.lua = {
+          {
+            type = 'nlua',
+            request = 'attach',
+            name = 'Attach to running Neovim instance',
+          },
+        }
+
+        dap.adapters.nlua = function(callback, config)
+          callback { type = 'server', host = config.host or '127.0.0.1', port = config.port or 8086 }
+        end
+      end,
+      keys = {
+        {
+          '<localleader>dl',
+          function()
+            require('osv').launch { port = 8086 }
+          end,
+          mode = 'n',
+          desc = 'Debug: Lua launch',
+        },
+      },
+    },
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!

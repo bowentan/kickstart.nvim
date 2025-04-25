@@ -81,13 +81,13 @@ return {
         end,
         desc = 'Command History',
       },
-      {
-        '<leader>Nn',
-        function()
-          Snacks.picker.notifications()
-        end,
-        desc = 'Notification History',
-      },
+      -- {
+      --   '<leader>Nn',
+      --   function()
+      --     Snacks.picker.notifications()
+      --   end,
+      --   desc = 'Notification History',
+      -- },
       {
         '<leader>E',
         function()
@@ -446,13 +446,13 @@ return {
         end,
         desc = 'Select Scratch Buffer',
       },
-      {
-        '<leader>Nn',
-        function()
-          Snacks.notifier.show_history()
-        end,
-        desc = 'Notification History',
-      },
+      -- {
+      --   '<leader>Nn',
+      --   function()
+      --     Snacks.notifier.show_history()
+      --   end,
+      --   desc = 'Notification History',
+      -- },
       {
         '<leader>bd',
         function()

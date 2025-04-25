@@ -2,6 +2,7 @@
 return {
   {
     'quarto-dev/quarto-nvim',
+    lazy = true,
     dependencies = {
       'jmbuhr/otter.nvim',
       'nvim-treesitter/nvim-treesitter',
@@ -90,6 +91,8 @@ return {
   },
   {
     'bowentan/molten-nvim',
+    lazy = true,
+    ft = { 'quarto', 'markdown' },
     branch = 'feat/add-snacks-support',
     -- version = '^1.0.0', -- use version <2.0.0 to avoid breaking changes
     build = ':UpdateRemotePlugins',
