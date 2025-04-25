@@ -10,6 +10,15 @@
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+  rocks = {
+    hererocks = true,
+  },
+  specs = {
+    {
+      '3rd/image.nvim',
+      opts = {},
+    },
+  },
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
