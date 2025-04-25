@@ -12,6 +12,7 @@ return {
       dashboard = { enabled = true },
       dim = { enabled = true },
       explorer = { enabled = true },
+      image = { enabled = true },
       indent = { enabled = true },
       input = { enabled = true },
       layzgit = { enabled = true },
