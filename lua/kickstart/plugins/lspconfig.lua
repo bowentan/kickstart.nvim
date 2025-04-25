@@ -283,7 +283,7 @@ return {
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'ruff', -- Used to format Python code
-        'rust-analyzer', -- Used for Rust LSP
+        -- 'rust-analyzer', -- Used for Rust LSP
         'markdownlint', -- Used for Markdown Linting
         'prettier', -- Used for formatting JavaScript, TypeScript, etc.
         'prettierd', -- Used for formatting JavaScript, TypeScript, etc.
