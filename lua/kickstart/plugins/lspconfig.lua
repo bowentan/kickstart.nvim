@@ -300,7 +300,7 @@ return {
         'markdownlint', -- Used for Markdown Linting
         'prettier', -- Used for formatting JavaScript, TypeScript, etc.
         'prettierd', -- Used for formatting JavaScript, TypeScript, etc.
-        -- 'pyright', -- Used for Python LSP
+        'pyright', -- Used for Python LSP
         'ruff', -- Used to format Python code
         'shfmt', -- Used to format Shell code
         'stylua', -- Used to format Lua code
