@@ -2,6 +2,13 @@ return {
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     config = function()
+      -- Check snacks
+      local has_snacks, _ = pcall(require, 'snacks')
+      if not has_snacks then
+        error 'snacks is not available, skip setting toggle for mini'
+        return
+      end
+
       -- Better Around/Inside textobjects
       --
       -- Examples:
@@ -22,6 +29,24 @@ return {
       -- require('mini.completion').setup()
 
       require('mini.map').setup()
+      Snacks.toggle
+        .new({
+          id = 'minimap',
+          name = 'MiniMap',
+          get = function()
+            local cur_win_id = MiniMap.current.win_data[vim.api.nvim_get_current_tabpage()]
+            return cur_win_id ~= nil and vim.api.nvim_win_is_valid(cur_win_id)
+          end,
+          set = function(state)
+            if state then
+              MiniMap.open()
+            else
+              MiniMap.close()
+            end
+          end,
+        })
+        :map '<leader>um'
+
       --
       require('mini.pairs').setup()
       require('mini.move').setup {

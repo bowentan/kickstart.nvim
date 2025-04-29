@@ -25,6 +25,8 @@ return {
 
   require 'plugins.avante',
 
+  require 'plugins.render-markdown',
+
   require 'plugins.ts-autotag',
 
   require 'plugins.rustaceanvim',
@@ -77,7 +79,11 @@ return {
 
   require 'plugins.noice',
 
-  -- require 'plugins.papis',
+  require 'plugins.nvim-lsp-file-op',
+
+  require 'plugins.papis',
+
+  require 'plugins.outline',
 }
 
 -- vim: ts=2 sts=2 sw=2 et

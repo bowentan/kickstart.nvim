@@ -1,7 +1,8 @@
 return {
   {
-    'jghauser/papis.nvim',
-    dev = true,
+    -- 'jghauser/papis.nvim',
+    'bowentan/papis.nvim',
+    branch = 'feat/snacks-picker',
     dependencies = {
       'kkharji/sqlite.lua',
       'MunifTanjim/nui.nvim',
@@ -9,6 +10,7 @@ return {
       'nvim-neotest/nvim-nio',
       -- if not already installed, you may also want:
       -- 'nvim-telescope/telescope.nvim',
+      'folke/snacks.nvim',
     },
     config = function()
       require('papis').setup {
@@ -16,8 +18,12 @@ return {
         enable_modules = {
           ['completion'] = false,
         },
+        init_filetypes = { 'markdown', 'norg', 'yaml', 'typst', 'tex', 'rmd' },
         enable_keymaps = true,
         db_path = '~/papis/papis.sqlite3',
+        ['search'] = {
+          provider = 'snacks',
+        },
       }
     end,
   },

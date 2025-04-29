@@ -563,39 +563,6 @@ return {
           Snacks.toggle.inlay_hints():map '<leader>uh'
           Snacks.toggle.indent():map '<leader>ug'
           Snacks.toggle.dim():map '<leader>uD'
-          Snacks.toggle
-            .new({
-              id = 'colorizer',
-              name = 'Colorizer',
-              get = function()
-                return require('colorizer').is_buffer_attached()
-              end,
-              set = function(state)
-                if state then
-                  require('colorizer').attach_to_buffer()
-                else
-                  require('colorizer').detach_from_buffer()
-                end
-              end,
-            })
-            :map '<leader>ur'
-          Snacks.toggle
-            .new({
-              id = 'minimap',
-              name = 'MiniMap',
-              get = function()
-                local cur_win_id = MiniMap.current.win_data[vim.api.nvim_get_current_tabpage()]
-                return cur_win_id ~= nil and vim.api.nvim_win_is_valid(cur_win_id)
-              end,
-              set = function(state)
-                if state then
-                  MiniMap.open()
-                else
-                  MiniMap.close()
-                end
-              end,
-            })
-            :map '<leader>um'
         end,
       })
     end,
