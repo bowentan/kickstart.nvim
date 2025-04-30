@@ -27,6 +27,8 @@ return {
 
   require 'plugins.render-markdown',
 
+  require 'plugins.markdown-preview',
+
   require 'plugins.ts-autotag',
 
   require 'plugins.rustaceanvim',
