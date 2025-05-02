@@ -71,7 +71,7 @@ return {
 
   require 'plugins.neorg',
 
-  require 'plugins.vim-visual-multi', -- May be replaced in neovim v0.12+
+  -- require 'plugins.vim-visual-multi', -- May be replaced in neovim v0.12+
 
   require 'plugins.nvim-colorizer',
 
