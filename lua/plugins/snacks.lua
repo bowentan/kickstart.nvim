@@ -17,8 +17,8 @@ return {
         doc = {
           enabled = true,
           inline = false,
-          max_width = 100,
-          max_height = 100,
+          -- max_width = 100,
+          -- max_height = 100,
         },
         math = {
           enabled = true,
@@ -563,6 +563,23 @@ return {
           Snacks.toggle.inlay_hints():map '<leader>uh'
           Snacks.toggle.indent():map '<leader>ug'
           Snacks.toggle.dim():map '<leader>uD'
+        end,
+      })
+
+      local group = vim.api.nvim_create_augroup('ToggleImage', { clear = true })
+      vim.api.nvim_create_autocmd('InsertEnter', {
+        pattern = '*',
+        group = group,
+        callback = function()
+          require('snacks.image.doc').hover_close()
+          Snacks.config.image.enabled = false
+        end,
+      })
+      vim.api.nvim_create_autocmd('InsertLeave', {
+        pattern = '*',
+        group = group,
+        callback = function()
+          Snacks.config.image.enabled = true
         end,
       })
     end,

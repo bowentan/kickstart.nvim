@@ -1,8 +1,6 @@
 return {
   {
-    -- 'jghauser/papis.nvim',
-    'bowentan/papis.nvim',
-    branch = 'feat/snacks-picker',
+    'jghauser/papis.nvim',
     dependencies = {
       'kkharji/sqlite.lua',
       'MunifTanjim/nui.nvim',

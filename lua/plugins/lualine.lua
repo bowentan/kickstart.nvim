@@ -37,7 +37,16 @@ return {
               navic_opts = nil,
             },
           },
-          lualine_x = { 'encoding', 'fileformat', 'filetype' },
+          lualine_x = {
+            'encoding',
+            'fileformat',
+            'filetype',
+            {
+              require('noice').api.status.mode.get,
+              cond = require('noice').api.status.mode.has,
+              color = { fg = '#ff9e64' },
+            },
+          },
           lualine_y = { 'progress' },
           lualine_z = { 'location' },
         },

@@ -11,6 +11,7 @@ return {
 
     dependencies = {
       'Kaiser-Yang/blink-cmp-avante',
+      'folke/lazydev.nvim',
     },
 
     ---@module 'blink.cmp'
