@@ -14,7 +14,8 @@ return {
     opts = {
       -- Your setup opts here
       outline_window = {
-        width = 20,
+        width = 15,
+        show_relative_numbers = true,
       },
     },
   },

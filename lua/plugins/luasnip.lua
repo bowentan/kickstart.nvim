@@ -38,7 +38,7 @@ return {
         silent = true,
       },
       {
-        '<C-C>',
+        '<C-L>',
         function()
           local ls = require 'luasnip'
           if ls.choice_active() then

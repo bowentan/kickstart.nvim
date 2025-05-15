@@ -44,20 +44,18 @@ return {
     'zbirenbaum/copilot.lua',
     cmd = 'Copilot',
     event = 'InsertEnter',
-    config = function()
-      require('copilot').setup {
-        suggestion = {
-          enabled = true,
-          auto_trigger = true,
-          keymap = {
-            accept = '<M-CR>',
-            accept_word = '<C-right>',
-            accept_line = '<C-CR>',
-            next = '<M-]>',
-            prev = '<M-[>',
-          },
+    opts = {
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        keymap = {
+          accept = '<C-S-CR>',
+          accept_word = '<C-right>',
+          accept_line = '<C-CR>',
+          next = '<M-]>',
+          prev = '<M-[>',
         },
-      }
-    end,
+      },
+    },
   },
 }
