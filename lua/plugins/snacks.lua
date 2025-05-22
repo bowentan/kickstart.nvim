@@ -17,8 +17,6 @@ return {
         doc = {
           enabled = true,
           inline = false,
-          -- max_width = 100,
-          -- max_height = 100,
         },
         math = {
           enabled = true,

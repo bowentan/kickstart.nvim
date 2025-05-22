@@ -90,20 +90,19 @@ return {
     },
   },
   {
-    'bowentan/molten-nvim',
+    'benlubas/molten-nvim',
     lazy = true,
     ft = { 'quarto', 'markdown' },
-    branch = 'feat/add-snacks-support',
-    -- version = '^1.0.0', -- use version <2.0.0 to avoid breaking changes
+    version = '^1.0.0', -- use version <2.0.0 to avoid breaking changes
     build = ':UpdateRemotePlugins',
     init = function()
       -- this is an example, not a default. Please see the readme for more configuration options
-      vim.g.molten_image_provider = 'snacks.nvim'
+      vim.g.molten_image_provider = 'wezterm'
       -- vim.g.molten_output_win_max_height = 1000
       vim.g.molten_virt_text_max_lines = 200
       vim.g.molten_auto_open_output = false
       vim.g.molten_wrap_output = true
-      vim.g.molten_virt_text_output = false
+      vim.g.molten_virt_text_output = true
       vim.g.molten_virt_lines_off_by_1 = true
     end,
     keys = {
