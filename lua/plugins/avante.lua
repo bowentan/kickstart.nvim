@@ -48,7 +48,7 @@ return {
         enabled = true,
         auto_trigger = true,
         keymap = {
-          accept = '<C-S-CR>',
+          accept = '<C-M-CR>',
           accept_word = '<C-right>',
           accept_line = '<C-CR>',
           next = '<M-]>',
