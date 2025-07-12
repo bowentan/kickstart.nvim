@@ -218,7 +218,11 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {
+          cmd = { 'clangd', '--background-index', '--clang-tidy', '--compile-commands-dir=build' },
+          root_dir = require('lspconfig').util.root_pattern('CMakeLists.txt', 'compile_commands.json', '.git'),
+        },
+
         gopls = {
           settings = {
             gopls = {
@@ -271,6 +275,9 @@ return {
             semanticTokens = 'disable',
           },
         },
+
+        -- Typescript LSP
+        vtsls = {},
       }
 
       -- Ensure the servers and tools above are installed
@@ -288,7 +295,8 @@ return {
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'bash-language-server', -- Used for Bash LSP
+        -- 'bash-language-server', -- Used for Bash LSP
+        'clang-format', -- Used to format C/C++ code
         'gofumpt', -- Used to format Go code
         'goimports', -- Used to format Go code
         'golines',
@@ -301,7 +309,7 @@ return {
         'ruff', -- Used to format Python code
         'shfmt', -- Used to format Shell code
         'stylua', -- Used to format Lua code
-        'typescript-language-server', -- Used for TypeScript LSP
+        'taplo', -- Used for TOML code
         'tinymist', -- Used for Typst LSP
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -317,7 +325,8 @@ return {
             -- certain features of an LSP (for example, turning off formatting for ts_ls)
             -- server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities)
-            require('lspconfig')[server_name].setup(server)
+            -- require('lspconfig')[server_name].setup(server)
+            vim.lsp.config(server_name, server)
           end,
         },
       }
