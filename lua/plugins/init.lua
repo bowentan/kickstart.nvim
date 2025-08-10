@@ -35,6 +35,7 @@ return {
   require 'plugins.patterns',
   require 'plugins.quarto-nvim',
   require 'plugins.rustaceanvim',
+  require 'plugins.slime',
   require 'plugins.snacks',
   require 'plugins.todo-comments',
   require 'plugins.tokyonight',
