@@ -26,7 +26,6 @@ return {
   require 'plugins.markview',
   require 'plugins.mini',
   require 'plugins.neoclip',
-  require 'plugins.neorg',
   require 'plugins.noice',
   require 'plugins.nvim-colorizer',
   require 'plugins.nvim-lsp-file-op',

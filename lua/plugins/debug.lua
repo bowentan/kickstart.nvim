@@ -26,10 +26,10 @@ return {
 
     -- Add your own debuggers here
     -- Go
-    'leoluz/nvim-dap-go',
+    -- 'leoluz/nvim-dap-go',
 
     -- Python
-    'mfussenegger/nvim-dap-python',
+    -- 'mfussenegger/nvim-dap-python',
 
     -- Lua
     {
