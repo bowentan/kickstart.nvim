@@ -223,17 +223,17 @@ return {
           root_dir = require('lspconfig').util.root_pattern('CMakeLists.txt', 'compile_commands.json', '.git'),
         },
 
-        gopls = {
-          settings = {
-            gopls = {
-              analyses = {
-                unusedparams = true,
-              },
-              staticcheck = true,
-              gofumpt = true,
-            },
-          },
-        },
+        -- gopls = {
+        --   settings = {
+        --     gopls = {
+        --       analyses = {
+        --         unusedparams = true,
+        --       },
+        --       staticcheck = true,
+        --       gofumpt = true,
+        --     },
+        --   },
+        -- },
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -297,10 +297,10 @@ return {
       vim.list_extend(ensure_installed, {
         -- 'bash-language-server', -- Used for Bash LSP
         'clang-format', -- Used to format C/C++ code
-        'gofumpt', -- Used to format Go code
-        'goimports', -- Used to format Go code
-        'golines',
-        'gopls', -- Used for Go LSP
+        -- 'gofumpt', -- Used to format Go code
+        -- 'goimports', -- Used to format Go code
+        -- 'golines',
+        -- 'gopls', -- Used for Go LSP
         'lua-language-server', -- Used for Lua LSP
         'markdownlint', -- Used for Markdown Linting
         'prettier', -- Used for formatting JavaScript, TypeScript, etc.
