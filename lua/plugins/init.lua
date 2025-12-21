@@ -21,7 +21,7 @@ return {
   require 'plugins.hydra',
   require 'plugins.lspconfig',
   require 'plugins.lualine',
-  require 'plugins.luarocks',
+  -- require 'plugins.luarocks',
   require 'plugins.luasnip',
   require 'plugins.markview',
   require 'plugins.mini',
